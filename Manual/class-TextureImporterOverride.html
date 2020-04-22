@@ -1,0 +1,891 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<script>var offline=(location.href.indexOf('docs.unity3d.com')==-1)?true:false;if(!offline){(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);  })(window,document,'script','dataLayer','GTM-5V25JL6');}</script><link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual:  Texture compression formats for platform-specific overrides</title>
+<meta property="og:image" content="https://unity3d.com/files/images/ogimg.jpg">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript" src="https://docs.unity3d.com/StaticFilesConfig/UnityVersionsInfo.js"></script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1586228985"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1586228985"></script><script type="text/javascript" src="docdata/toc.js?ts=1586228985"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1586228985"></script><link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1586228985">
+<link rel="stylesheet" href="../StaticFilesManual/css/prism.css">
+<script src="../StaticFilesManual/js/prism.js"></script><script src="/StaticFilesConfig/feedback/feedback.js"></script><script src="../StaticFilesManual/js/jquery.sidebar.min.js"></script><link rel="stylesheet" href="../StaticFilesManual/css/mobileoptimisation.css">
+<script src="../StaticFilesManual/js/mobileoptimisation.js"></script>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5V25JL6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div id="DocsAnalyticsData" data-area="graphics" data-pagetype="manual"></div>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div id="nav-open" for="nav-input"><span></span></div>
+<div class="logo"><a href="https://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="https://unity.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="toggle version-number" id="VersionNumber" data-target=".otherversionscontent">
+                                Version: <b>2019.3</b><div class="otherversionscontent" id="OtherVersionsContent" style="display: none;">
+<ul id="OtherVersionsContentUl"></ul>
+<div id="otherVersionsLegend"><ul>
+<li>
+<div id="supportedColour" class="legendBox"></div>Supported</li>
+<li>
+<div id="notFoundColour" class="legendBox"></div>Legacy</li>
+</ul></div>
+</div>
+<div id="VersionSwitcherArrow" class="arrow versionSwitcherArrow"></div>
+</div>
+<div class="lang-switcher"><div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language
+:                <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/class-TextureImporterOverride.html">English</a></li>
+<li><a href="/ja/current/Manual/class-TextureImporterOverride.html">日本語</a></li>
+<li><a href="/es/current/Manual/class-TextureImporterOverride.html">Español</a></li>
+<li><a href="/kr/current/Manual/class-TextureImporterOverride.html">한국어</a></li>
+<li><a href="/ru/current/Manual/class-TextureImporterOverride.html">Русский</a></li>
+</ul></div>
+</div></div>
+</div></div>
+<div class="mobileLogo"><a href="https://docs.unity3d.com"></a></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc" id="customScrollbar">
+<h2>Unity Manual</h2>
+<div class="search-form sidebar-search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" id="mobileSearchBtn" class="submit" value="Search">
+</form></div>
+<div class="toggle version-number sidebar-version-switcher" id="VersionNumber" data-target=".otherversionscontent"><form id="otherVersionsContentMobileForm"><div class="ui-field-contain">
+<label for="select-native-4">Version: 2019.3</label><select name="select-native-4" id="versionsSelectMobile"><option>Select a different version</option>
+<optgroup id="versionsWithThisPageMobile" label="Versions with this page"></optgroup>
+<optgroup id="versionsWithoutThisPageMobile" label="Versions without this page"></optgroup></select>
+</div></form></div>
+<div class="lang-switcher"><div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language
+:                <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/class-TextureImporterOverride.html">English</a></li>
+<li><a href="/ja/current/Manual/class-TextureImporterOverride.html">日本語</a></li>
+<li><a href="/es/current/Manual/class-TextureImporterOverride.html">Español</a></li>
+<li><a href="/kr/current/Manual/class-TextureImporterOverride.html">한국어</a></li>
+<li><a href="/ru/current/Manual/class-TextureImporterOverride.html">Русский</a></li>
+</ul></div>
+</div></div>
+</div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity User Manual (2019.3)</a></li>
+<li><a href="Graphics.html">Graphics</a></li>
+<li><a href="Shaders.html">Meshes, Materials, Shaders and Textures</a></li>
+<li><a href="Textures.html">Textures</a></li>
+<li><a href="class-TextureImporter.html"> Textures</a></li>
+<li> Texture compression formats for platform-specific overrides</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="TextureTypes.html"></a></span><div class="tip">Texture Types</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="class-RenderTexture.html"></a></span><div class="tip">Render Texture</div>
+</div>
+</div></div>
+<div id="_leavefeedback"></div>
+<h1>Texture compression formats for platform-specific overrides</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>Unity supports many common image formats as source files for importing your <span class="tooltip"><a href="class-TextureImporter.html">Textures</a><span class="tooltiptext">An image used when rendering a GameObject, Sprite, or UI element. Textures are often applied to the surface of a mesh to give it visual detail. <a href="class-TextureImporter.html">More info</a><br/><span class="tooltipGlossaryLink">See in <a href="Glossary.html#texture">Glossary</a></span></span></span> (such as JPG, PNG, PSD, and TGA). However, 3D graphics hardware, such as graphics cards or mobile devices, doesn’t use these formats during real-time <span class="tooltip"><strong>rendering</strong><span class="tooltiptext">The process of drawing graphics to the screen (or to a render texture). By default, the main camera in Unity renders its view to the screen. <a href="GraphicsOverview.html">More info</a><br/><span class="tooltipGlossaryLink">See in <a href="Glossary.html#Rendering">Glossary</a></span></span></span>. This hardware requires Textures to be compressed in specialized formats which are optimized for fast Texture sampling. Different platforms and devices each have their own proprietary formats.</p>
+
+<p>This page contains the following information:</p>
+
+<ol>
+<li><a href="#texture-compression-concepts">Texture compression concepts</a></li>
+<li><a href="#default-formats">Default formats for supported platforms</a></li>
+<li><a href="#all-supported-formats">All supported Texture compression formats</a></li>
+<li>
+<a href="#mobile-webgl-formats">Mobile and WebGL specific formats</a>
+
+<ol>
+<li><a href="#notes-on-ios">Notes on iOS</a></li>
+<li><a href="#notes-on-tvos">Notes on tvOS</a></li>
+<li><a href="#notes-on-android">Notes on Android</a></li>
+</ol>
+</li>
+</ol>
+
+<p>By default, the Unity Editor automatically converts Textures to the most appropriate format to match the build target you have selected, and only includes converted Textures in the build. Your source Asset files remain in their original format in your Project’s <code>Assets</code> folder. However, most platforms support several Texture <strong>compression</strong> formats you can choose from. Unity has default formats for each platform, but you can override them and choose different <strong>compression</strong> formats for some of your Textures (for example, if you are using a Texture as a mask, with only one channel, you might choose to use the BC4 format to reduce file size but preserve quality).</p>
+
+<figure>
+<img src="../uploads/Main/class-TextureImporterOverride.png" alt="Platform-specific Texture settings in the Inspector window ">
+<figcaption>Platform-specific Texture settings in the Inspector window
+</figcaption>
+</figure>
+
+<p>To apply custom settings for each platform, use the <a href="class-TextureImporter.html">Texture Importer</a> to set default options, then follow these steps:</p>
+
+<ol>
+<li>In the Texture’s <strong><span class="tooltip"><strong>Inspector</strong><span class="tooltiptext">A Unity window that displays information about the currently selected GameObject, Asset or Project Settings, alowing you to inspect and edit the values. <a href="UsingTheInspector.html">More info</a><br/><span class="tooltipGlossaryLink">See in <a href="Glossary.html#Inspector">Glossary</a></span></span></span></strong> window, select a platform.</li>
+<li>Enable the override option. For example, to override <span class="tooltip"><strong>iOS</strong><span class="tooltiptext">Apple’s mobile operating system. <a href="iphone.html">More info</a><br/><span class="tooltipGlossaryLink">See in <a href="Glossary.html#iOS">Glossary</a></span></span></span> settings, enable <strong>Override For <strong>iOS</strong></strong>.</li>
+<li>Configure the Texture’s settings for that platform.</li>
+<li>Click <strong>Apply</strong> to preserve your changes, or <strong>Revert</strong> to return to default values.</li>
+</ol>
+
+<h2>Texture compression concepts <a name="texture-compression-concepts"></a>
+</h2>
+
+<p>This page uses the following concepts:</p>
+
+<ol>
+<li>
+<strong>RGB</strong> is a color model in which red, green and blue are added together in various ways to reproduce a broad array of colors.</li>
+<li>
+<strong>RGBA</strong> is a version of <strong>RGB</strong> with an alpha channel, which supports blending and opacity alteration.</li>
+<li>
+<strong>Bits per <span class="tooltip"><strong>pixel</strong><span class="tooltiptext">The smallest unit in a computer image. Pixel size depends on your screen resolution. Pixel lighting is calculated at every screen pixel. <a href="LightPerformance">More info</a><br/><span class="tooltipGlossaryLink">See in <a href="Glossary.html#pixel">Glossary</a></span></span></span> (bpp)</strong> is the amount of storage required for a single pixel. The lower this value, the more pixels can be stored in the cache on the GPU, which results in faster texture access.</li>
+<li>
+<strong>Variable bit rate (VBR)</strong> means that bit per pixel is not a fixed value, and depends on the actual content instead. VBR only applies to <strong>Crunch compression</strong>, and only texture size on disk. The size in memory is the same as when using the underlying <strong>texture format</strong> (for example, RGB Compressed DXT1 for RGB Crunched DXT1).</li>
+<li>
+<strong>Crunch compression</strong> is a lossy compression format (part of the data is lost during compression) on top of DXT or ETC <strong>Texture compression</strong>. Textures are decompressed to DXT or ETC on the CPU, and then uploaded to the GPU at runtime. Crunch compression helps the Texture use the lowest possible amount of disk space, but has no effect on runtime memory usage. Crunch Textures can take a long time to compress, but decompression at runtime is very fast.</li>
+</ol>
+
+<h2>Default formats for supported platforms <a name="default-formats"></a>
+</h2>
+
+<p>The following table shows the default formats used for each platform.</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Platform</strong></th>
+	<th style="text-align:left;"><strong>Color model</strong></th>
+	<th style="text-align:left;"><strong>None</strong></th>
+	<th style="text-align:left;"><strong>Normal quality (default)</strong></th>
+	<th style="text-align:left;"><strong>High quality</strong></th>
+	<th style="text-align:left;"><strong>Low quality (higher performance)</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Windows, Linux, macOS, PS4, <span class="tooltip"><strong>XBox One</strong><span class="tooltiptext">Microsoft’s eighth generation video game console.<br/><span class="tooltipGlossaryLink">See in <a href="Glossary.html#XboxOne">Glossary</a></span></span></span></strong></td>
+	<td style="text-align:left;">RGB</td>
+	<td style="text-align:left;">RGB 24 bit</td>
+	<td style="text-align:left;">RGB Compressed DXT1</td>
+	<td style="text-align:left;">RGB(A) Compressed BC7</td>
+	<td style="text-align:left;">RGB Compressed DXT1</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;">RGBA</td>
+	<td style="text-align:left;">RGBA 32 bit</td>
+	<td style="text-align:left;">RGBA Compressed DXT5</td>
+	<td style="text-align:left;">RGB(A) Compressed BC7</td>
+	<td style="text-align:left;">RGBA Compressed DXT5</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"><span class="tooltip"><strong>HDR</strong><span class="tooltiptext">high dymanic range <br/><span class="tooltipGlossaryLink">See in <a href="Glossary.html#HDR">Glossary</a></span></span></span></td>
+	<td style="text-align:left;">RGBA Half</td>
+	<td style="text-align:left;">RGB Compressed BC6H</td>
+	<td style="text-align:left;">RGB Compressed BC6H</td>
+	<td style="text-align:left;">RGB Compressed BC6H</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><span class="tooltip"><strong>WebGL</strong><span class="tooltiptext">A JavaScript API that renders 2D and 3D graphics in a web browser. The Unity WebGL build option allows Unity to publish content as JavaScript programs which use HTML5 technologies and the WebGL rendering API to run Unity content in a web browser. <a href="webgl-gettingstarted.html">More info</a><br/><span class="tooltipGlossaryLink">See in <a href="Glossary.html#WebGL">Glossary</a></span></span></span></strong></td>
+	<td style="text-align:left;">RGB</td>
+	<td style="text-align:left;">RGB 24 bit</td>
+	<td style="text-align:left;">RGB Compressed DXT1</td>
+	<td style="text-align:left;">RGB Compressed DXT1</td>
+	<td style="text-align:left;">RGB Compressed DXT1</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;">RGBA</td>
+	<td style="text-align:left;">RGBA 32 bit</td>
+	<td style="text-align:left;">RGBA Compressed DXT5</td>
+	<td style="text-align:left;">RGBA Compressed DXT5</td>
+	<td style="text-align:left;">RGBA Compressed DXT5</td>
+</tr>
+<tr>
+	<td style="text-align:left;">
+<strong>Android</strong> (only when <strong>Don’t override</strong> is enabled in the build settings)</td>
+	<td style="text-align:left;">RGB</td>
+	<td style="text-align:left;">RGB 24 bit</td>
+	<td style="text-align:left;">RGB Compressed ETC</td>
+	<td style="text-align:left;">RGB Compressed ETC</td>
+	<td style="text-align:left;">RGB Compressed ETC</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;">RGBA</td>
+	<td style="text-align:left;">RGBA 32 bit</td>
+	<td style="text-align:left;">RGBA Compressed ETC2</td>
+	<td style="text-align:left;">RGBA Compressed ETC2</td>
+	<td style="text-align:left;">RGBA Compressed ETC2</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>iOS</strong></td>
+	<td style="text-align:left;">RGB</td>
+	<td style="text-align:left;">RGB 24 bit</td>
+	<td style="text-align:left;">RGB Compressed <strong>PVRTC</strong> 4 bits</td>
+	<td style="text-align:left;">RGB Compressed <strong>PVRTC</strong> 4 bits</td>
+	<td style="text-align:left;">RGB Compressed <strong>PVRTC</strong> 2 bits</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;">RGBA</td>
+	<td style="text-align:left;">RGBA 32 bit</td>
+	<td style="text-align:left;">RGBA Compressed PVRTC 4 bits</td>
+	<td style="text-align:left;">RGBA Compressed PVRTC 4 bits</td>
+	<td style="text-align:left;">RGBA Compressed PVRTC 2 bits</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>tvOS</strong></td>
+	<td style="text-align:left;">RGB</td>
+	<td style="text-align:left;">RGB 24 bit</td>
+	<td style="text-align:left;">RGB Compressed <strong>ASTC</strong> 6x6 block</td>
+	<td style="text-align:left;">RGB Compressed <strong>ASTC</strong> 4x4 block</td>
+	<td style="text-align:left;">RGB Compressed <strong>ASTC</strong> 8x8 block</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;">RGBA</td>
+	<td style="text-align:left;">RGBA 32 bit</td>
+	<td style="text-align:left;">RGBA Compressed ASTC 6x6 block</td>
+	<td style="text-align:left;">RGBA Compressed ASTC 4x4 block</td>
+	<td style="text-align:left;">RGBA Compressed ASTC 8x8 block</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Default</strong></td>
+	<td style="text-align:left;">RGBA</td>
+	<td style="text-align:left;">RGBA 32 bit</td>
+	<td style="text-align:left;">RGBA 16 bit</td>
+	<td style="text-align:left;">RGBA 16 bit</td>
+	<td style="text-align:left;">RGBA 16 bit</td>
+</tr>
+</tbody>
+</table>
+
+<h2>All supported Texture compression formats <a name="all-supported-formats"></a>
+</h2>
+
+<p>The following tables show the Texture compression format options available on each platform, and the resulting compressed file size on disk (based on a 256 by 256 pixel image).</p>
+
+<p>Choosing a Texture compression format is a balance between file size, quality and compression time: the higher the quality, the greater the file size. For the best performance, especially on mobile devices, use the format with the fewest bits per pixel that is supported by the hardware your application targets, as long as that format provides sufficient visual quality.</p>
+
+<p>Different platforms have different hardware, and are optimised to work most efficiently with specific compression formats. When you use a Texture compression format that the target platform supports, the GPU can use it directly and the platform doesn’t spend any resources to decompress the Texture to a supported format. This can improve your application’s performance.</p>
+
+<p>If you use a Texture compression format that the target platform doesn’t support, Textures are decompressed to RGBA 32 bit (unless noted otherwise) and stored in memory alongside the compressed Textures. This increases texture loading time and uses additional memory, which means that choosing non-compatible formats can impact your application’s performance.</p>
+
+<p>The tables below show supported platforms for each compression format.</p>
+
+<p>
+<strong>Note:</strong> Size in memory is based on a 256 x 256 pixel Texture.</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Texture compression format</strong></th>
+	<th style="text-align:left;"><strong>Description</strong></th>
+	<th style="text-align:left;"><strong>Size in memory</strong></th>
+	<th style="text-align:left;"><strong>Windows</strong></th>
+	<th style="text-align:left;"><strong>Linux</strong></th>
+	<th style="text-align:left;"><strong>Mac</strong></th>
+	<th style="text-align:left;"><strong>PS4</strong></th>
+	<th style="text-align:left;"><strong>Xbox One</strong></th>
+	<th style="text-align:left;"><strong>Android</strong></th>
+	<th style="text-align:left;"><strong>iOS</strong></th>
+	<th style="text-align:left;"><strong>tvOS</strong></th>
+	<th style="text-align:left;"><strong>WebGL</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">RGB Compressed DXT1</td>
+	<td style="text-align:left;">Compressed unsigned normalised integer RGB Texture.</td>
+	<td style="text-align:left;">32KB / 4 bpp</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">partial (1)</td>
+	<td style="text-align:left;">no</td>
+	<td style="text-align:left;">no</td>
+	<td style="text-align:left;">partial (2)</td>
+</tr>
+<tr>
+	<td style="text-align:left;">RGB Crunched DXT1</td>
+	<td style="text-align:left;">RGB Compressed DXT1, with additional Crunch compression.</td>
+	<td style="text-align:left;">VBR</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">partial (1)</td>
+	<td style="text-align:left;">no</td>
+	<td style="text-align:left;">no</td>
+	<td style="text-align:left;">partial (2)</td>
+</tr>
+<tr>
+	<td style="text-align:left;">RGBA Compressed DXT5</td>
+	<td style="text-align:left;">Compressed unsigned normalised integer RGBA Texture.</td>
+	<td style="text-align:left;">64KB / 8 bpp</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">partial (1)</td>
+	<td style="text-align:left;">no</td>
+	<td style="text-align:left;">no</td>
+	<td style="text-align:left;">partial (2)</td>
+</tr>
+<tr>
+	<td style="text-align:left;">RGBA Crunched DXT5</td>
+	<td style="text-align:left;">RGBA Compressed DXT5, with additional Crunch compression.</td>
+	<td style="text-align:left;">VBR</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">partial (1)</td>
+	<td style="text-align:left;">no</td>
+	<td style="text-align:left;">no</td>
+	<td style="text-align:left;">partial (2)</td>
+</tr>
+<tr>
+	<td style="text-align:left;">RGB Compressed BC6H</td>
+	<td style="text-align:left;">Compressed unsigned float/High Dynamic Range (HDR) RGB Texture.</td>
+	<td style="text-align:left;">64KB / 8 bpp</td>
+	<td style="text-align:left;">partial (3)</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">partial (3)</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">no</td>
+	<td style="text-align:left;">no</td>
+	<td style="text-align:left;">no</td>
+	<td style="text-align:left;">no</td>
+</tr>
+<tr>
+	<td style="text-align:left;">RGB(A) Compressed BC7</td>
+	<td style="text-align:left;">High-quality compressed unsigned normalised integer RGB or RGBA Texture.</td>
+	<td style="text-align:left;">64KB / 8 bpp</td>
+	<td style="text-align:left;">partial (3)</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">partial (3)</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">no</td>
+	<td style="text-align:left;">no</td>
+	<td style="text-align:left;">no</td>
+	<td style="text-align:left;">no</td>
+</tr>
+<tr>
+	<td style="text-align:left;">RGB 16 bit</td>
+	<td style="text-align:left;">Uncompressed format with 65536 colors without alpha. Uses more memory than the compressed formats, but could be more suitable for <span class="tooltip"><strong>UI</strong><span class="tooltiptext">(User Interface) Allows a user to interact with your application. <a href="UISystem.html">More info</a><br/><span class="tooltipGlossaryLink">See in <a href="Glossary.html#UI">Glossary</a></span></span></span> or crisp Textures without gradients.</td>
+	<td style="text-align:left;">128KB / 16 bpp</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+</tr>
+<tr>
+	<td style="text-align:left;">RGB 24 bit</td>
+	<td style="text-align:left;">True color, without alpha.</td>
+	<td style="text-align:left;">192KB / 24 bpp</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+</tr>
+<tr>
+	<td style="text-align:left;">RGB9e5 32 Bit Shared Exponent Float</td>
+	<td style="text-align:left;">Floating-point / High Dynamic Range (HDR) texture without alpha channel.</td>
+	<td style="text-align:left;">256 KB / 32 bpp</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">partial (4)</td>
+	<td style="text-align:left;">partial (4)</td>
+	<td style="text-align:left;">partial (4)</td>
+	<td style="text-align:left;">partial (4)</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Alpha 8</td>
+	<td style="text-align:left;">High-quality uncompressed alpha channel.</td>
+	<td style="text-align:left;">64KB / 8 bpp</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+</tr>
+<tr>
+	<td style="text-align:left;">R 8</td>
+	<td style="text-align:left;">High-quality uncompressed single-channel texture.</td>
+	<td style="text-align:left;">64KB / 8 bpp</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">partial (5)</td>
+	<td style="text-align:left;">partial (5)</td>
+	<td style="text-align:left;">partial (5)</td>
+	<td style="text-align:left;">partial (5)</td>
+</tr>
+<tr>
+	<td style="text-align:left;">R 16 bit</td>
+	<td style="text-align:left;">Ultra-high-quality uncompressed single-channel texture.</td>
+	<td style="text-align:left;">128KB / 16 bpp</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">partial (6)</td>
+	<td style="text-align:left;">partial (6)</td>
+	<td style="text-align:left;">partial (6)</td>
+	<td style="text-align:left;">no</td>
+</tr>
+<tr>
+	<td style="text-align:left;">RGBA 16 bit</td>
+	<td style="text-align:left;">Low-quality true color.</td>
+	<td style="text-align:left;">128KB / 16 bpp</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+</tr>
+<tr>
+	<td style="text-align:left;">RGBA 32 bit</td>
+	<td style="text-align:left;">True color with alpha.</td>
+	<td style="text-align:left;">256KB / 32 bpp</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+</tr>
+<tr>
+	<td style="text-align:left;">RGBA Half</td>
+	<td style="text-align:left;">Half-precision floating point / High Dynamic Range (HDR) RGBA format.</td>
+	<td style="text-align:left;">512KB / 64bpp</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">partial (7)</td>
+	<td style="text-align:left;">partial (7)</td>
+	<td style="text-align:left;">partial (7)</td>
+	<td style="text-align:left;">partial (7)</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Notes:</strong></p>
+
+<ol>
+<li>On Nvidia Tegra GPUs only.</li>
+<li>With <a href="LinearLighting.html">linear rendering</a> on web browsers that do not support sRGB DXT, textures are decompressed at runtime to RGBA32.</li>
+<li>Windows Direct3D 11, Windows OpenGL 4, macOS Metal. On platforms with Direct3D 10 <span class="tooltip"><strong>Shader</strong><span class="tooltiptext">A small script that contains the mathematical calculations and algorithms for calculating the Color of each pixel rendered, based on the lighting input and the Material configuration. <a href="Shaders.html">More info</a><br/><span class="tooltipGlossaryLink">See in <a href="Glossary.html#Shader">Glossary</a></span></span></span> Model 4 and OpenGL 3 GPUs (Windows) and on macOS OpenGL, BC6H textures are decompressed to RGBA Half, and BC7 textures are decompressed to RGBA32.</li>
+<li>Requires Metal on iOS and tvOS; Vulkan or OpenGL ES 3.0 or Nvidia Tegra on Android; WebGL 2.</li>
+<li>Requires Metal on iOS and tvOS; Vulkan or OpenGL ES 3.0 or <a href="https://opengles.gpuinfo.org/listreports.php?extension=GL_EXT_texture_rg">GL_EXT_texture_rg</a> extension on Android; WebGL 2.</li>
+<li>Requires Metal on iOS and tvOS; Vulkan or OpenGL ES 3.0 and <a href="https://opengles.gpuinfo.org/listreports.php?extension=GL_EXT_texture_norm16">GL_EXT_texture_norm16</a> extension on Android.</li>
+<li>Requires Metal on iOS and tvOS; Vulkan or OpenGL ES 3.0 or <a href="https://opengles.gpuinfo.org/listreports.php?extension=GL_OES_texture_half_float">GL_OES_texture_half_float</a> extension on Android; WebGL 2 or <a href="https://developer.mozilla.org/en-US/docs/Web/API/OES_texture_half_float">OES_texture_half_float</a> extension on WebGL.</li>
+</ol>
+
+<p>You can import Textures from DDS files, but only DXT, BC compressed formats, or uncompressed pixel formats are supported.</p>
+
+<h2>Mobile and WebGL specific formats <a name="#mobile-webgl-formats"></a>
+</h2>
+
+<p>The formats in the table below are only supported on Android, iOS, tvOS, and WebGL.</p>
+
+<p>
+<strong>Note:</strong> Size is based on a 256 x 256 pixel Texture.</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Texture compression format</strong></th>
+	<th style="text-align:left;"><strong>Description</strong></th>
+	<th style="text-align:left;"><strong>Size</strong></th>
+	<th style="text-align:left;"><strong>Android</strong></th>
+	<th style="text-align:left;"><strong>iOS</strong></th>
+	<th style="text-align:left;"><strong>tvOS</strong></th>
+	<th style="text-align:left;"><strong>WebGL</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">RGB Compressed ETC</td>
+	<td style="text-align:left;">Compressed RGB Texture. This format is supported by all OpenGL ES 2.0 GPUs.</td>
+	<td style="text-align:left;">32KB / 4 bpp</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">partial (1)</td>
+</tr>
+<tr>
+	<td style="text-align:left;">RGB Crunched ETC</td>
+	<td style="text-align:left;">RGB Compressed ETC, with additional Crunch compression.</td>
+	<td style="text-align:left;">VBR</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">partial (1)</td>
+</tr>
+<tr>
+	<td style="text-align:left;">RGB Compressed ETC2</td>
+	<td style="text-align:left;">Compressed RGB Texture.</td>
+	<td style="text-align:left;">32KB / 4 bpp</td>
+	<td style="text-align:left;">partial (2)</td>
+	<td style="text-align:left;">partial (3)</td>
+	<td style="text-align:left;">partial (3)</td>
+	<td style="text-align:left;">partial (1)</td>
+</tr>
+<tr>
+	<td style="text-align:left;">RGBA Compressed ETC2</td>
+	<td style="text-align:left;">Compressed RGBA Texture. This format is supported by all OpenGL ES 3.0 GPUs.</td>
+	<td style="text-align:left;">64KB / 8 bpp</td>
+	<td style="text-align:left;">partial (2)</td>
+	<td style="text-align:left;">partial (3)</td>
+	<td style="text-align:left;">partial (3)</td>
+	<td style="text-align:left;">partial (1)</td>
+</tr>
+<tr>
+	<td style="text-align:left;">RGBA Crunched ETC2</td>
+	<td style="text-align:left;">RGBA Compressed ETC2, with additional Crunch compression.</td>
+	<td style="text-align:left;">VBR</td>
+	<td style="text-align:left;">partial (2)</td>
+	<td style="text-align:left;">partial (3)</td>
+	<td style="text-align:left;">partial (3)</td>
+	<td style="text-align:left;">partial (1)</td>
+</tr>
+<tr>
+	<td style="text-align:left;">RGB + 1-bit Alpha Compressed ETC2 4 bits</td>
+	<td style="text-align:left;">Compressed RGBA texture with alpha channel limited to either fully opaque or fully transparent.</td>
+	<td style="text-align:left;">32KB / 4 bpp</td>
+	<td style="text-align:left;">partial (2)</td>
+	<td style="text-align:left;">partial (3)</td>
+	<td style="text-align:left;">partial (3)</td>
+	<td style="text-align:left;">partial (1)</td>
+</tr>
+<tr>
+	<td style="text-align:left;">RG Compressed EAC 8 bit</td>
+	<td style="text-align:left;">High-quality compressed RG (two-channel) texture.</td>
+	<td style="text-align:left;">64KB / 8 bpp</td>
+	<td style="text-align:left;">partial (2)</td>
+	<td style="text-align:left;">partial (3)</td>
+	<td style="text-align:left;">partial (3)</td>
+	<td style="text-align:left;">partial (1)</td>
+</tr>
+<tr>
+	<td style="text-align:left;">R Compressed EAC 4 bit</td>
+	<td style="text-align:left;">High-quality compressed R (single-channel) texture.</td>
+	<td style="text-align:left;">32KB / 4 bpp</td>
+	<td style="text-align:left;">partial (2)</td>
+	<td style="text-align:left;">partial (3)</td>
+	<td style="text-align:left;">partial (3)</td>
+	<td style="text-align:left;">partial (1)</td>
+</tr>
+<tr>
+	<td style="text-align:left;">RGB(A) Compressed ASTC</td>
+	<td style="text-align:left;">Variable block size compressed RGB or RGBA Texture. This format is supported by all OpenGL ES 3.1 and Vulkan GPUs.</td>
+	<td style="text-align:left;">12x12: 7744 bytes / 0.89 bpp<br><br>10x10: 10816bytes / 1.28 bpp<br><br>8x8: 16KB / 2 bpp<br><br>6x6: 29584 bytes / 3.56 bpp<br><br>5x5: 43264 bytes / 5.12 bpp<br><br>4x4: 64KB / 8 bpp</td>
+	<td style="text-align:left;">partial (4)</td>
+	<td style="text-align:left;">partial (5)</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">partial (6)</td>
+</tr>
+<tr>
+	<td style="text-align:left;">RGB(A) Compressed ASTC HDR</td>
+	<td style="text-align:left;">Variable block size compressed unsigned float/High Dynamic Range (HDR) RGB or RGBA Texture.</td>
+	<td style="text-align:left;">12x12: 7744 bytes / 0.89 bpp<br><br>10x10: 10816bytes / 1.28 bpp<br><br>8x8: 16KB / 2 bpp<br><br>6x6: 29584 bytes / 3.56 bpp<br><br>5x5: 43264 bytes / 5.12 bpp<br><br>4x4: 64KB / 8 bpp</td>
+	<td style="text-align:left;">partial (7)</td>
+	<td style="text-align:left;">no</td>
+	<td style="text-align:left;">no</td>
+	<td style="text-align:left;">no</td>
+</tr>
+<tr>
+	<td style="text-align:left;">RGB Compressed PVRTC 2 bits (8)</td>
+	<td style="text-align:left;">High-compression RGB Texture.</td>
+	<td style="text-align:left;">16KB / 2 bpp</td>
+	<td style="text-align:left;">partial (9)</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">no</td>
+</tr>
+<tr>
+	<td style="text-align:left;">RGBA Compressed PVRTC 2 bits</td>
+	<td style="text-align:left;">High-compression RGBA Texture.</td>
+	<td style="text-align:left;">16KB / 2 bpp</td>
+	<td style="text-align:left;">partial (9)</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">no</td>
+</tr>
+<tr>
+	<td style="text-align:left;">RGB Compressed PVRTC 4 bits</td>
+	<td style="text-align:left;">Compressed RGB Texture.</td>
+	<td style="text-align:left;">32KB / 4 bpp</td>
+	<td style="text-align:left;">partial (9)</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">no</td>
+</tr>
+<tr>
+	<td style="text-align:left;">RGBA Compressed PVRTC 4 bits</td>
+	<td style="text-align:left;">Compressed RGBA Texture.</td>
+	<td style="text-align:left;">32KB / 4 bpp</td>
+	<td style="text-align:left;">partial (9)</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">yes</td>
+	<td style="text-align:left;">no</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Notes:</strong></p>
+
+<ol>
+<li>ETC1 and ETC2/EAC are supported on WebGL only on a subset of browsers.</li>
+<li>ETC2 is not supported on Android when running OpenGL ES 2. In this case, the texture is decompressed at runtime to the format specified by <strong>ETC2 fallback</strong> in the <a href="android-BuildProcess.html">Android Build Settings</a> or on the Android tab for Texture Override settings.</li>
+<li>ETC2 is not supported on iOS and tvOS when running OpenGL ES 2.</li>
+<li>Requires <a href="https://opengles.gpuinfo.org/listreports.php?extension=GL_KHR_texture_compression_astc_ldr">GL_KHR_texture_compression_astc_ldr</a> extension or Vulkan support.</li>
+<li>Requires A8 GPU or newer.</li>
+<li>Requires <a href="https://docs.w3cub.com/dom/webgl_compressed_texture_astc/">WEBGL_compressed_texture_astc</a> extension.</li>
+<li>Requires <a href="https://opengles.gpuinfo.org/listreports.php?extension=GL_KHR_texture_compression_astc_hdr">GL_KHR_texture_compression_astc_hdr</a> extension. When this extension is not supported, the texture is decompressed at run time to RGB9E5 format, losing the alpha channel.</li>
+<li>All PVRTC formats require <strong>square</strong> textures with <strong>power-of-two dimensions</strong>.</li>
+<li>On PowerVR GPUs only.</li>
+</ol>
+
+<h3>Notes on iOS <a name="notes-on-ios"></a>
+</h3>
+
+<p>Default texture compression settings (PVRTC) are chosen for broader compatibility. If your application does not include OpenGL ES 2 support, you can choose one of the ASTC formats. They offer better quality and flexibility, and compression is faster than PVRTC.</p>
+
+<h3>Notes on tvOS <a name="notes-on-tvos"></a>
+</h3>
+
+<p>Unity supports only tvOS devices that have Metal support. ASTC is the default texture compression on this platform. If you manually add OpenGL ES 2, make sure to change the texture compression to either PVRTC or ETC to avoid texture decompression at runtime.</p>
+
+<h3>Notes on Android <a name="notes-on-android"></a>
+</h3>
+
+<h4>Regular Textures</h4>
+
+<p>Unless your app targets specific hardware (such as Nvidia Tegra or Imagination PowerVR), you have to choose between several compressed and uncompressed formats, which offer different trade-offs:</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Format</strong></th>
+	<th style="text-align:left;"><strong>Description</strong></th>
+	<th style="text-align:left;"><strong>Support</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">ASTC</td>
+	<td style="text-align:left;">The most flexible format, as it allows you to fine-tune file size and resulting quality using different block sizes.</td>
+	<td style="text-align:left;">Supported on all devices running Vulkan or OpenGL ES 3.1, and on some devices running OpenGL ES 3.0.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">ETC2/EAC</td>
+	<td style="text-align:left;">Standard texture compression format for OpenGL ES 3.0. The resulting image quality is quite high, and it supports one- to four-component texture data. It’s not supported by OpenGL ES 2 devices, so the texture is decompressed at run time to the format specified by <strong>ETC2 fallback</strong>.</td>
+	<td style="text-align:left;">Supported on OpenGL ES 3.0.<br>Not supported on OpenGL ES 2.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">ETC</td>
+	<td style="text-align:left;">The drawback is that there is no direct alpha channel support, so it’s not suitable for textures that have transparency information. Unity provides an automated way of handling texture with <a href="HOWTO-alphamaps.html">alpha channels</a> placed in a texture atlas (this can be specified using a packing tag on sprites). To enable this, enable the <strong>Compress using ETC1</strong> option for the Texture. Unity splits the resulting atlas into two Textures, one with RGB data and one with alpha channel data duplicated in all three (RGB) channels, and then combines them in the final parts of the render pipeline.</td>
+	<td style="text-align:left;">Supported on all Android devices.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">RGBA 16 bit</td>
+	<td style="text-align:left;">Uncompressed format that has an alpha channel. It takes twice as much memory as ETC2. This is a reasonably good format to choose for pixel-perfect UI without strong gradients.</td>
+	<td style="text-align:left;">Supported on all devices.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">RGBA 32 bit</td>
+	<td style="text-align:left;">Uncompressed format that offers highest quality and has alpha channel support. It takes four times as much memory compared to ETC2. This is a format of choice for the best-looking, pixel-perfect UI.</td>
+	<td style="text-align:left;">Supported on all devices.</td>
+</tr>
+</tbody>
+</table>
+
+<h4>HDR Textures</h4>
+
+<p>For high dynamic range (HDR) textures, choose from one of the following formats:</p>
+
+<ul>
+<li>ASTC HDR is the only compressed format available on Android devices for HDR textures. It requires Vulkan or <a href="https://opengles.gpuinfo.org/listreports.php?extension=GL_KHR_texture_compression_astc_hdr">GL_KHR_texture_compression_astc_hdr</a> support. As with low dynamic range textures, this is the most flexible format.</li>
+<li>RGB9e5 is a packed format without an alpha channel. All devices running Vulkan or OpenGL ES 3.0, and devices with Nvidia Tegra GPUs, support this format.</li>
+<li>RGBA Half is an uncompressed floating-point format with half precision. It takes twice as much memory as RGB9e5, but has an alpha channel and is supported by most devices.</li>
+</ul>
+
+<h4>Targeting multiple devices with separate APKs</h4>
+
+<p>You can publish multiple <strong><span class="tooltip"><strong>APKs</strong><span class="tooltiptext">The Android Package format output by Unity. An APK is automatically deployed to your device when you select File &gt; Build &amp; Run. <a href="android-BuildProcess.html">More info</a><br/><span class="tooltipGlossaryLink">See in <a href="Glossary.html#APK">Glossary</a></span></span></span></strong> that target different hardware. For example, to publish two separate <strong>APKs</strong> (one that targets devices that support OpenGL ES 3.0 and newer, and another for OpenGL ES 2.0-only devices), follow these steps:</p>
+
+<p><strong>1. Build an APK that targets OpenGL ES 3.</strong></p>
+
+<ol>
+<li>Access the Android <span class="tooltip"><a href="class-PlayerSettingsAndroid.html">Player Settings</a><span class="tooltiptext">Settings that let you set various player-specific options for the final game built by Unity. <a href="class-PlayerSettings.html">More info</a><br/><span class="tooltipGlossaryLink">See in <a href="Glossary.html#PlayerSettings">Glossary</a></span></span></span> (menu: <strong>Edit &gt; Project Settings &gt; Player Settings</strong>, then select the Android category).</li>
+<li>Scroll down to the <strong>Graphics APIs</strong> section.</li>
+<li>Make sure OpenGL ES 2 is not in the list.</li>
+<li>Build the APK (menu: <strong>File &gt; Build Settings</strong>, then click <strong>Build</strong>).</li>
+</ol>
+
+<p><strong>2. Build a separate APK that targets OpenGL ES 2</strong></p>
+
+<ol>
+<li>Access the Android Player Settings.</li>
+<li>Scroll down to the <strong>Graphics APIs</strong> section.</li>
+<li>Add OpenGL ES 2 and remove OpenGL ES 3 and Vulkan from the list.</li>
+<li>Build the APK.</li>
+</ol>
+
+<p><strong>3. Publish both of these APKs to the Google Play Store.</strong></p>
+
+<p>When a user downloads your app, the Google Play Store automatically installs the most relevant APK for their device.</p>
+
+<p>For more information about publishing multiple APK files, see Android Developer documentation on:</p>
+
+<ul>
+<li><a href="https://developer.android.com/google/play/publishing/multiple-apks.html">Publishing Multiple APKs</a></li>
+<li>
+<a href="https://developer.android.com/google/play/filters.html">Google Play Store APK filtering</a>.</li>
+</ul>
+
+<hr>
+
+<ul>
+<li><p><span class="page-history">Linear rendering on WebGL added in <a href="https://docs.unity3d.com/2017.2/Documentation/Manual/30_search.html?q=newin20172">2017.2</a> <span class="search-words">NewIn20172</span></span></p></li>
+<li><p><span class="page-history">Crunch compression format updated in <a href="https://docs.unity3d.com/2017.3/Documentation/Manual/30_search.html?q=newin20173">2017.3</a> <span class="search-words">NewIn20173</span></span></p></li>
+<li><p><span class="page-history">Tizen and Samsung TV support discontinued in <a href="https://docs.unity3d.com/2017.3/Documentation/Manual/30_search.html?q=newin20173">2017.3</a> <span class="search-words">NewIn20173</span></span></p></li>
+<li><p><span class="page-history">ASTC HDR texture compression for Android added in <a href="https://docs.unity3d.com/2019.1/Documentation/Manual/30_search.html?q=newin20191">2019.1</a> <span class="search-words">NewIn20191</span></span></p></li>
+<li><p><span class="page-history">Content refreshed for Unity <a href="https://docs.unity3d.com/2019.1/Documentation/Manual/30_search.html?q=newin20191">2019.3</a> <span class="search-words">NewIn20193</span></span></p></li>
+</ul>
+<!-- area:graphics -->
+<div id="_content"></div>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="TextureTypes.html"></a></span><div class="tip">Texture Types</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="class-RenderTexture.html"></a></span><div class="tip">Render Texture</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">Copyright © 2020 Unity Technologies. Publication Date: 2020-04-07.</div>
+<div class="menu">
+<a href="https://learn.unity.com/">Tutorials</a><a href="https://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="https://forum.unity3d.com">Forums</a><a href="https://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+</body>
+</html>
