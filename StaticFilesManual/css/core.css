@@ -688,3 +688,19 @@ div.header .more .filler:before { background-image: url(../images/shard-right@2x
   margin-left: 20px;
   padding-right: 20px;
 }
+
+.translated
+{
+  color:lightblue;
+}
+
+.translating
+{
+  color:cadetblue;
+}
+
+.cncn
+{
+  color:#888;
+  font-size: 0.875em;
+}
