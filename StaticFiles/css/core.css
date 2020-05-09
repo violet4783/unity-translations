@@ -708,17 +708,22 @@ div.header .more .filler:before { background-image: url(../images/shard-right@2x
   padding-right: 20px;
 }
 
-.translated
+.translate
+{
+  color:#888;
+}
+
+.conclude
+{
+  color:palevioletred;
+}
+
+.understand
 {
   color:lightblue;
 }
 
-.translating
+.progress
 {
-  color:cadetblue;
-}
-
-.cncn
-{
-  color:#888;
+  color:gold;
 }
